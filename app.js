@@ -1,10 +1,14 @@
 
 const express = require("express")
 const app = express()
-
-const server = app.listen(3000, () => { // create a HTTP server on port 3000
-    console.log(`Express running → PORT ${server.address().port}`)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`App is running on port ${ PORT }`);
 });
+
+// const server = app.listen(3000, () => { // create a HTTP server on port 3000
+//     console.log(`Express running → PORT ${server.address().port}`)
+// });
 
 app.use(express.static(__dirname, { // host the whole directory
         extensions: ["html", "htm", "gif", "png","jpg"],
